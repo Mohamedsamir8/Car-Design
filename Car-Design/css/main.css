@@ -1,0 +1,262 @@
+/* Add this to your CSS stylesheets */
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap");
+/* Start variables */
+:root {
+  --main-color: #10c1bf;
+  --sec-color: #001d29;
+  --glow-color: rgb(217, 176, 255);
+  --glow-spread-color: rgba(191, 123, 255, 0.781);
+  --enhanced-glow-color: rgb(231, 206, 255);
+  --btn-color: rgb(100, 61, 136);
+}
+
+/* End variables */
+/* Start Globle roles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/* ! Start Header */
+.header {
+  background: transparent;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+}
+.header .container {
+  display: flex;
+  height: 80px;
+  text-align: center;
+  align-items: center;
+}
+.header .logo img {
+  width: 60px;
+}
+.header .img-logo {
+  width: 20%;
+}
+.header .img-logo img {
+  width: 47%;
+  margin-left: -190px;
+}
+.header ul {
+  display: flex;
+}
+.header ul li a {
+  color: #643d88;
+  font-size: 18px;
+  text-decoration: none;
+  padding-right: 25px;
+  transition: 0.3s;
+  font-weight: bold;
+}
+.header li > a:hover {
+  color: var(--btn-color);
+}
+.header .fa-bars {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 25px;
+  color: #fff;
+  right: 5%;
+}
+
+@media (max-width: 767px) {
+  .header .img-logo img {
+    width: 120%;
+    left: 75px;
+    position: relative;
+  }
+  .header nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: fit-content;
+    left: 208px;
+    transform: translateX(-50%);
+    background: #001d29;
+    padding: 20px 100%;
+    text-align: center;
+    transition: 0.3s;
+  }
+  .header ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .header ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding-right: 21px;
+    font-size: 16px;
+  }
+  .header .fa-bars {
+    display: block;
+  }
+  .header .fa-bars:hover nav {
+    display: block;
+  }
+}
+/* Start Landing */
+.landing {
+  max-width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.landing img {
+  background-size: cover;
+  height: 100vh;
+  position: absolute;
+}
+.landing .container {
+  display: flex;
+}
+.landing .pg-left {
+  width: 50%;
+  height: 100vh;
+  top: 0;
+  background-color: rgb(255 255 255 / 40%);
+  backdrop-filter: blur(10px);
+  position: absolute;
+  box-shadow: 0 0 1em 0.25em var(--glow-color),
+    0 0 4em 1em var(--glow-spread-color),
+    inset 0 0 0.75em 0.25em var(--glow-color);
+  text-shadow: 0 0 0.5em var(--glow-color);
+  position: relative;
+  transition: all 0.3s;
+}
+.landing .text {
+  position: absolute;
+  top: 25%;
+}
+.landing h3 {
+  font-size: 55px;
+  width: 90%;
+  margin: auto;
+}
+.landing span {
+  color: #643d88;
+}
+.landing p {
+  width: 85%;
+  margin: 40px auto;
+  font-size: 22px;
+  font-weight: bold;
+}
+.landing .pg-right {
+  width: 50%;
+}
+@media (max-width: 767px) {
+  .landing .pg-left {
+    width: 100%;
+  }
+  .landing img {
+    left: -25%;
+  }
+  .landing h3 {
+    font-size: 47px;
+    text-align: center;
+  }
+  .landing p {
+    width: 90%;
+    text-align: center;
+  }
+}
+
+button {
+  border: 0.25em solid var(--glow-color);
+  padding: 1em 3em;
+  color: var(--glow-color);
+  font-size: 15px;
+  font-weight: bold;
+  background-color: var(--btn-color);
+  border-radius: 1em;
+  outline: none;
+  box-shadow: 0 0 1em 0.25em var(--glow-color),
+    0 0 4em 1em var(--glow-spread-color),
+    inset 0 0 0.75em 0.25em var(--glow-color);
+  text-shadow: 0 0 0.5em var(--glow-color);
+  position: relative;
+  transition: all 0.3s;
+}
+
+button::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 120%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--glow-spread-color);
+  filter: blur(2em);
+  opacity: 0.7;
+  transform: perspective(1.5em) rotateX(35deg) scale(1, 0.6);
+}
+
+button:hover {
+  color: var(--btn-color);
+  background-color: var(--glow-color);
+  box-shadow: 0 0 1em 0.25em var(--glow-color),
+    0 0 4em 2em var(--glow-spread-color),
+    inset 0 0 0.75em 0.25em var(--glow-color);
+}
+
+button:active {
+  box-shadow: 0 0 0.6em 0.25em var(--glow-color),
+    0 0 2.5em 2em var(--glow-spread-color),
+    inset 0 0 0.5em 0.25em var(--glow-color);
+}
+/* End Landing */
+
+/* !End Contact */
+/* footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #171f22;
+  color: white;
+} */
